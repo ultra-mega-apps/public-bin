@@ -10,11 +10,6 @@ dpkg-reconfigure -plow unattended-upgrades
 systemctl enable --now apt-daily.timer apt-daily-upgrade.timer
 systemctl status unattended-upgrades --no-pager || true
 
-systemctl list-timers --all | egrep 'apt-daily|unattended' || true
-tail -n 80 /var/log/unattended-upgrades/unattended-upgrades.log 2>/dev/null || true
-
-grep -R --line-number 'Unattended-Upgrade::Allowed-Origins\|Origins-Pattern\|Automatic-Reboot\|Remove-Unused\|AutoFixInterrupted' /etc/apt/apt.conf.d/\* | head -n 200
-
 # Automatic Restarts and Ubuntu Pro
 set -euo pipefail
 
