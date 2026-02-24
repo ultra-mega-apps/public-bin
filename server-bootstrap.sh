@@ -35,7 +35,7 @@ apt install -y \
 git config --global user.email "fernando@ultramega.email"
 git config --global user.name "Fernando Reis Guimaraes"
 gh auth login
-gh repo clone ultra-mega-apps/bin
+gh repo clone ultra-mega-apps/bin ~/bin
 
 # .bashrc
 cp ~/.bashrc ~/.bashrc.before.server-bootstrap.bak
