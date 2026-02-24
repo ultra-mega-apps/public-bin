@@ -32,8 +32,10 @@ apt install -y \
   net-tools 
 
 # gh git config
-git config --global user.email "fernando@ultramega.email"
-git config --global user.name "Fernando Reis Guimaraes"
+read -p -s 'Enter user.email: ' GIT_USER_EMAIL
+read -p -s 'Enter user.name: ' GIT_USER_NAME
+git config --global user.email "$GIT_USER_EMAIL"
+git config --global user.name "$GIT_USER_NAME"
 gh auth login
 gh repo clone ultra-mega-apps/bin ~/bin
 
