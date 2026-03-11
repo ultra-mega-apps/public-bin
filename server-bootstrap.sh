@@ -41,16 +41,23 @@ gh repo clone ultra-mega-apps/bin ~/bin
 
 # .bashrc
 cp ~/.bashrc ~/.bashrc.before.server-bootstrap.bak
-sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' .bashrc
-sed -i 's/HISTFILESIZE=2000/HISTFILESIZE=20000/g' .bashrc
-sed -i 's/#force_color_prompt/force_color_prompt/g' .bashrc
-sed -i 's/01;32m/01;95m/g' .bashrc
+sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' ~/.bashrc
+sed -i 's/HISTFILESIZE=2000/HISTFILESIZE=20000/g' ~/.bashrc
+sed -i 's/#force_color_prompt/force_color_prompt/g' ~/.bashrc
+sed -i 's/01;32m/01;95m/g' ~/.bashrc
 
 touch ~/.bash_aliases
 echo $'alias list=\'ls -lkhp\'' >> ~/.bash_aliases
 echo $'alias lista=\'ls -lkhap\'' >> ~/.bash_aliases
 
-echo >> .bashrc
-echo 'export PATH="~/bin:$PATH"' >> .bashrc
+echo >> ~/.bashrc
+echo 'export PATH="~/bin:$PATH"' >> ~/.bashrc
+
+cat >> ~/.bashrc <<'EOF'
+export HISTTIMEFORMAT='%F %T '
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+EOF
 
 source ~/.bashrc
+
